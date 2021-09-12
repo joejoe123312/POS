@@ -40,8 +40,9 @@ class Login extends CI_Controller
 				redirect('Login');
 			}
 		}
-
-		$this->load->view('login');
+		$this->load->view('authentication/auth_header');
+		$this->load->view('authentication/login');
+		$this->load->view('authentication/auth_footer');
 	}
 
 	function changePassword()
