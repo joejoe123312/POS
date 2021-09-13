@@ -50,6 +50,9 @@
 <!--end #base-->
 <!-- END BASE -->
 <!-- BEGIN JAVASCRIPT -->
+<script>
+    consolo.log(<?= base_url() ?>)
+</script>
 <script src="<?= base_url() ?>assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
 <script src="<?= base_url() ?>assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
 <script src="<?= base_url() ?>assets/js/libs/bootstrap/bootstrap.min.js"></script>
