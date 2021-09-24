@@ -33,7 +33,7 @@ class Login extends CI_Controller
 				//validate and take account the user type
 				$credentialsTable = $credentialsTable->row();
 				$this->session->set_userdata('credentialsId', $credentialsTable->id);
-				redirect('Dashboard');
+				redirect('Login/SplashScreen');
 			} else {
 				//wala siyang nahanap
 				$this->session->set_userdata('userInvalid', 1);
@@ -42,6 +42,14 @@ class Login extends CI_Controller
 		}
 		$this->load->view('authentication/auth_header');
 		$this->load->view('authentication/login');
+		$this->load->view('authentication/auth_footer');
+	}
+
+
+	function SplashScreen()
+	{
+		$this->load->view('authentication/auth_header');
+		$this->load->view('authentication/splashScreen');
 		$this->load->view('authentication/auth_footer');
 	}
 
