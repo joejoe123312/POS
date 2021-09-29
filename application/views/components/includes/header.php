@@ -21,6 +21,8 @@
     <link type="text/css" rel="stylesheet" href="<?= base_url() ?>assets/css/theme-default/libs/morris/morris.core.css?1420463396" />
     <!-- END STYLESHEETS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
 		<script type="text/javascript" src="<?= base_url() ?>assets/js/libs/utils/html5shiv.js?1403934957"></script>
