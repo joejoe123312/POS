@@ -1,6 +1,4 @@
 <!-- BEGIN BASE-->
-
-
 <div id="base">
 
     <!-- BEGIN OFFCANVAS LEFT -->
@@ -65,7 +63,7 @@
                             <div class="form-group">
                                 <div class="input-group input-group-lg">
                                     <div class="input-group-content">
-                                        <input type="text" class="form-control" id="searchInput" placeholder="Enter your search here">
+                                        <input type="text" class="form-control" id="searchInput" placeholder="Enter your search here" autocomplete="off">
                                         <div class="form-control-line"></div>
                                     </div>
                                     <div class="input-group-btn">
@@ -103,12 +101,7 @@
                                             <button type="button" class="btn btn-primary-light dropdown-toggle" aria-expanded="false">
                                                 <span class="fa fa-plus"></span> Add record
                                             </button>
-                                            <ul class="dropdown-menu dropdown-menu-right animation-dock" role="menu">
-                                                <li class="active"><a href="#">Date asc</a></li>
-                                                <li><a href="#">Date desc</a></li>
-                                                <li><a href="#">Title asc</a></li>
-                                                <li><a href="#">Title desc</a></li>
-                                            </ul>
+
                                         </div>
                                     </div>
                                     <!--end .margin-bottom-xxl -->
