@@ -17,7 +17,6 @@
 						<div class="form-group">
 							<input type="password" class="form-control" id="password" name="password">
 							<label for="password">Password</label>
-							<p class="help-block"><a href="#">Forgotten?</a></p>
 						</div>
 						<br />
 						<div class="row">
