@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 02, 2021 at 04:42 PM
+-- Generation Time: Oct 17, 2021 at 11:20 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.3.29
 
@@ -53,7 +53,7 @@ CREATE TABLE `diagnose_to_seek` (
   `id` int(65) NOT NULL,
   `patient_id` int(65) NOT NULL,
   `date` date NOT NULL,
-  `time` date NOT NULL
+  `time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -67,8 +67,15 @@ CREATE TABLE `doctor_record` (
   `firstname` varchar(65) NOT NULL,
   `middlename` varchar(65) NOT NULL,
   `lastname` varchar(65) NOT NULL,
-  `contact_number` int(65) NOT NULL
+  `contact_number` varchar(65) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `doctor_record`
+--
+
+INSERT INTO `doctor_record` (`id`, `firstname`, `middlename`, `lastname`, `contact_number`) VALUES
+(1, 'firstname', 'middlename', 'lastname', '09565791354985');
 
 -- --------------------------------------------------------
 
@@ -80,8 +87,15 @@ CREATE TABLE `doctor_time_in` (
   `id` int(65) NOT NULL,
   `doctor_id` int(65) NOT NULL,
   `date` date NOT NULL,
-  `time` date NOT NULL
+  `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `doctor_time_in`
+--
+
+INSERT INTO `doctor_time_in` (`id`, `doctor_id`, `date`, `time`) VALUES
+(1, 1, '2021-10-05', '16:34:58');
 
 -- --------------------------------------------------------
 
@@ -100,7 +114,7 @@ CREATE TABLE `env_sanitation_rescident_record` (
   `has_garden` tinyint(1) NOT NULL,
   `has_cr` tinyint(1) NOT NULL,
   `date` date NOT NULL,
-  `time` date NOT NULL
+  `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -114,7 +128,7 @@ CREATE TABLE `medicine` (
   `patient_id` int(65) NOT NULL,
   `given_medicine` varchar(65) NOT NULL,
   `date` datetime NOT NULL,
-  `time` datetime NOT NULL
+  `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -127,7 +141,7 @@ CREATE TABLE `patient_checkup_dates` (
   `id` int(65) NOT NULL,
   `patient_id` int(65) NOT NULL,
   `date` date NOT NULL,
-  `time` date NOT NULL
+  `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -173,7 +187,7 @@ CREATE TABLE `prescription_management` (
   `id` int(65) NOT NULL,
   `patient_id` int(65) NOT NULL,
   `date` date NOT NULL,
-  `time` date NOT NULL
+  `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -186,7 +200,7 @@ CREATE TABLE `schedule_highblood_maintenance` (
   `id` int(65) NOT NULL,
   `patient_id` int(65) NOT NULL,
   `date` date NOT NULL,
-  `time` date NOT NULL,
+  `time` time NOT NULL,
   `is_given_medicine` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -200,7 +214,7 @@ CREATE TABLE `schedule_pregnant_immunization` (
   `id` int(65) NOT NULL,
   `patient_id` int(65) NOT NULL,
   `date` date NOT NULL,
-  `time` date NOT NULL,
+  `time` time NOT NULL,
   `is_given_medicine` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -214,7 +228,7 @@ CREATE TABLE `schedule_tuberculosis_maintenance` (
   `id` int(65) NOT NULL,
   `patient_id` int(65) NOT NULL,
   `date` date NOT NULL,
-  `time` date NOT NULL,
+  `time` time NOT NULL,
   `is_given_medicine` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -228,7 +242,7 @@ CREATE TABLE `schedule_underweight_children` (
   `id` int(65) NOT NULL,
   `patient_id` int(65) NOT NULL,
   `date` date NOT NULL,
-  `time` date NOT NULL,
+  `time` time NOT NULL,
   `is_given_medicine` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -242,7 +256,7 @@ CREATE TABLE `symptoms_complains` (
   `id` int(65) NOT NULL,
   `patient_id` int(65) NOT NULL,
   `date` date NOT NULL,
-  `time` date NOT NULL,
+  `time` time NOT NULL,
   `complain` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -279,7 +293,7 @@ CREATE TABLE `vital_signs_measure` (
   `id` int(65) NOT NULL,
   `patient_id` int(65) NOT NULL,
   `date` date NOT NULL,
-  `time` date NOT NULL
+  `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -396,19 +410,19 @@ ALTER TABLE `credentials`
 -- AUTO_INCREMENT for table `diagnose_to_seek`
 --
 ALTER TABLE `diagnose_to_seek`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `doctor_record`
 --
 ALTER TABLE `doctor_record`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `doctor_time_in`
 --
 ALTER TABLE `doctor_time_in`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `env_sanitation_rescident_record`
