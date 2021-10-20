@@ -77,7 +77,8 @@
 <script src="<?= base_url() ?>assets/js/core/source/AppNavSearch.js"></script>
 <script src="<?= base_url() ?>assets/js/core/source/AppVendor.js"></script>
 <script src="<?= base_url() ?>assets/js/core/demo/Demo.js"></script>
-<script src="<?= base_url() ?>assets/js/core/demo/DemoDashboard.js"></script>
+<!-- Commented out not working -->
+<!-- <script src="<?= base_url() ?>assets/js/core/demo/DemoDashboard.js"></script> --> 
 <!-- END JAVASCRIPT -->
 
 </body>

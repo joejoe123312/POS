@@ -37,8 +37,7 @@ class Command_patient extends CI_Controller
 		$update['gender'] = $this->input->post("gender");
 		$update['height'] = $this->input->post("height");
 		$update['weight'] = $this->input->post("weight");
-		$update['civilStatus'] = $this->input->post("civil_status"); 
-		$update['concern'] = $this->input->post("concern");
+		$update['civil_status'] = $this->input->post("civil_status"); 
 
         $this->Main_model->_update("patient_record", "id", $id, $update);
     }

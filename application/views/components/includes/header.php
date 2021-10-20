@@ -20,7 +20,12 @@
     <link type="text/css" rel="stylesheet" href="<?= base_url() ?>assets/css/theme-default/libs/rickshaw/rickshaw.css?1422792967" />
     <link type="text/css" rel="stylesheet" href="<?= base_url() ?>assets/css/theme-default/libs/morris/morris.core.css?1420463396" />
     <!-- END STYLESHEETS -->
+
+    <!-- // jquery  dapat hind na naka cdn tong mga to -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- // sweet alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->

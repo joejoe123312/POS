@@ -13,39 +13,26 @@
         <section>
             <div class="section-body">
                 <div class="row">
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-md-6 col-sm-6">
                         <div class="card">
                             <div class="card-body no-padding">
                                 <div class="alert alert-callout alert-success no-margin">
                                     <h1 class="pull-right text-success"><i class="fa fa-users"></i></h1>
-                                    <strong class="text-xl">12354</strong><br>
-                                    <span class="opacity-50">Patient Record Count</span>
+                                    <strong class="text-xl" id="numberOfPatients">0</strong><br>
+                                    <span class="opacity-50">Number of patients</span>
                                 </div>
                             </div>
                             <!--end .card-body -->
                         </div>
                         <!--end .card -->
                     </div>
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-md-6 col-sm-6">
                         <div class="card">
                             <div class="card-body no-padding">
                                 <div class="alert alert-callout alert-success no-margin">
                                     <h1 class="pull-right text-success"><i class="fa fa-users"></i></h1>
-                                    <strong class="text-xl">12354</strong><br>
-                                    <span class="opacity-50">Patient Record Count</span>
-                                </div>
-                            </div>
-                            <!--end .card-body -->
-                        </div>
-                        <!--end .card -->
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="card">
-                            <div class="card-body no-padding">
-                                <div class="alert alert-callout alert-success no-margin">
-                                    <h1 class="pull-right text-success"><i class="fa fa-users"></i></h1>
-                                    <strong class="text-xl">12354</strong><br>
-                                    <span class="opacity-50">Patient Record Count</span>
+                                    <strong class="text-xl" id="numberOfDoctors">0</strong><br>
+                                    <span class="opacity-50">Number of doctors</span>
                                 </div>
                             </div>
                             <!--end .card-body -->
@@ -67,7 +54,7 @@
                                         <div class="form-control-line"></div>
                                     </div>
                                     <div class="input-group-btn">
-                                        <button class="btn btn-floating-action btn-default-bright" type="button">
+                                        <button class="btn btn-floating-action btn-default-bright" type="button" id="patientSearchBtn">
                                             <i class="fa fa-search"></i>
                                         </button>
                                     </div>
@@ -78,19 +65,20 @@
                     </div>
                     <!--end .card-body -->
                     <!-- END SEARCH BAR -->
-
+                    
                     <!-- BEGIN TAB RESULTS -->
-                    <ul class="card-head nav nav-tabs tabs-accent" data-toggle="tabs">
-                        <li class="active"><a href="#web1">Symptoms chief complains of patient</a></li>
-                        <li class=""><a href="#web1">Vital Signs Measure </a></li>
-                        <li class=""><a href="#web1">Diagnose to seek</a></li>
-                        <li class=""><a href="#web1">Prescription management</a></li>
+                    <ul class="card-head nav nav-tabs tabs-accent searchResult" data-toggle="tabs" style="display:none;">
+                        <li class="active"><a href="#symptomsChief">Symptoms chief complains of patient</a></li>
+                        <li class=""><a href="#vitalMeasure">Vital Signs Measure </a></li>
+                        <li class=""><a href="#diagnoseToSeek">Diagnose to seek</a></li>
+                        <li class=""><a href="#prescriptionManagement">Prescription management</a></li>
                     </ul>
                     <!-- END TAB RESULTS -->
 
                     <!-- BEGIN TAB CONTENT -->
-                    <div class="card-body tab-content style-default-bright">
-                        <div class="tab-pane active" id="web1">
+                    <div class="card-body tab-content style-default-bright searchResult" style="display:none;">
+
+                        <div class="tab-pane active" id="vitalMeasure">
                             <div class="row">
                                 <div class="col-lg-12">
 
@@ -167,3 +155,41 @@
     </div>
     <!--end #content-->
     <!-- END CONTENT -->
+    <script>
+        $(document).ready(function(){
+            // GET HOW MANY DOCTORS
+            $.post("<?= base_url() ?>/Query_doctorRecord/getAll", function(resp){
+                resp = JSON.parse(resp);
+                count = resp.length;
+                $("#numberOfDoctors").text(count);
+            });
+
+            // GET HOW MANY PATIENTS
+            $.post("<?= base_url() ?>/Query_patientRecord/getAll", function(resp){
+                resp = JSON.parse(resp);
+                count = resp.length;
+                $("#numberOfPatients").text(count);
+            });
+
+            $('#patientSearchBtn').on("click", function(){
+                $(".searchResult").slideDown();
+
+                let searchInput = $("#searchInput").val();
+                
+                $.post("<?= base_url() ?>/Query_patientRecord/multipleWhere", {
+                    whereString: JSON.stringify([{"fullname": searchInput}])
+                },function(resp){
+                    console.log(resp);
+                });
+            });
+        });
+    </script>
+    <script src="<?= base_url() ?>assets/js/Autocomplete.js"></script>
+    <script>
+        // AUTOCOMPLETE SCRIPT 
+        $(document).ready(function(){
+            $.post("<?= base_url() ?>/Query_patientRecord/getPatientFullNames", function(resp){
+                autocomplete(document.getElementById("searchInput"), JSON.parse(resp));
+            });
+        });
+    </script>

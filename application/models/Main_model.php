@@ -333,4 +333,9 @@ class Main_model extends CI_Model
 
         return $this->form_validation->run();
     }
+
+    function customQuery($query)
+    {
+        $this->db->query($query);
+    }
 }
