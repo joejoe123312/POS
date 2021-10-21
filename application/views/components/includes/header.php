@@ -17,12 +17,14 @@
     <link type="text/css" rel="stylesheet" href="<?= base_url() ?>assets/css/theme-default/materialadmin.css?1425466319" />
     <link type="text/css" rel="stylesheet" href="<?= base_url() ?>assets/css/theme-default/font-awesome.min.css?1422529194" />
     <link type="text/css" rel="stylesheet" href="<?= base_url() ?>assets/css/theme-default/material-design-iconic-font.min.css?1421434286" />
-    <link type="text/css" rel="stylesheet" href="<?= base_url() ?>assets/css/theme-default/libs/rickshaw/rickshaw.css?1422792967" />
-    <link type="text/css" rel="stylesheet" href="<?= base_url() ?>assets/css/theme-default/libs/morris/morris.core.css?1420463396" />
+    <link type="text/css" rel="stylesheet" href="<?= base_url() ?>assets/css/theme-default/libs/DataTables/jquery.dataTables.css?1423553989" />
+    <link type="text/css" rel="stylesheet" href="<?= base_url() ?>assets/css/theme-default/libs/DataTables/extensions/dataTables.colVis.css?1423553990" />
+    <link type="text/css" rel="stylesheet" href="<?= base_url() ?>assets/css/theme-default/libs/DataTables/extensions/dataTables.tableTools.css?1423553990" />
+
     <!-- END STYLESHEETS -->
 
     <!-- // jquery  dapat hind na naka cdn tong mga to -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" intgrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- // sweet alert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -46,7 +48,7 @@
                     <li class="header-nav-brand">
                         <div class="brand-holder">
                             <a href="<?= base_url() ?>html/dashboards/dashboard.html">
-                                <span class="text-lg text-bold text-primary">DENTAL SYSTEM</span>
+                                <span class="text-lg text-bold text-primary">CLINIC SYSTEM</span>
                             </a>
                         </div>
                     </li>
@@ -65,7 +67,7 @@
                         <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
                             <img src="<?= base_url() ?>assets/img/avatar1.jpg?1403934956" alt="" />
                             <span class="profile-info">
-                                Dental Clinic
+                                Clinic
                                 <small>Administrator</small>
                             </span>
                         </a>

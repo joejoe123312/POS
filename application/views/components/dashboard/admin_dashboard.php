@@ -65,7 +65,7 @@
                     </div>
                     <!--end .card-body -->
                     <!-- END SEARCH BAR -->
-                    
+
                     <!-- BEGIN TAB RESULTS -->
                     <ul class="card-head nav nav-tabs tabs-accent searchResult" data-toggle="tabs" style="display:none;">
                         <li class="active"><a href="#symptomsChief">Symptoms chief complains of patient</a></li>
@@ -156,29 +156,31 @@
     <!--end #content-->
     <!-- END CONTENT -->
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
             // GET HOW MANY DOCTORS
-            $.post("<?= base_url() ?>/Query_doctorRecord/getAll", function(resp){
+            $.post("<?= base_url() ?>/Query_doctorRecord/getAll", function(resp) {
                 resp = JSON.parse(resp);
                 count = resp.length;
                 $("#numberOfDoctors").text(count);
             });
 
             // GET HOW MANY PATIENTS
-            $.post("<?= base_url() ?>/Query_patientRecord/getAll", function(resp){
+            $.post("<?= base_url() ?>/Query_patientRecord/getAll", function(resp) {
                 resp = JSON.parse(resp);
                 count = resp.length;
                 $("#numberOfPatients").text(count);
             });
 
-            $('#patientSearchBtn').on("click", function(){
+            $('#patientSearchBtn').on("click", function() {
                 $(".searchResult").slideDown();
 
                 let searchInput = $("#searchInput").val();
-                
+
                 $.post("<?= base_url() ?>/Query_patientRecord/multipleWhere", {
-                    whereString: JSON.stringify([{"fullname": searchInput}])
-                },function(resp){
+                    whereString: JSON.stringify([{
+                        "fullname": searchInput
+                    }])
+                }, function(resp) {
                     console.log(resp);
                 });
             });
@@ -187,8 +189,8 @@
     <script src="<?= base_url() ?>assets/js/Autocomplete.js"></script>
     <script>
         // AUTOCOMPLETE SCRIPT 
-        $(document).ready(function(){
-            $.post("<?= base_url() ?>/Query_patientRecord/getPatientFullNames", function(resp){
+        $(document).ready(function() {
+            $.post("<?= base_url() ?>/Query_patientRecord/getPatientFullNames", function(resp) {
                 autocomplete(document.getElementById("searchInput"), JSON.parse(resp));
             });
         });

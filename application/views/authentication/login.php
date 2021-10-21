@@ -34,12 +34,12 @@
 							<!--end .col -->
 							<div class="col-sm-12  text-center">
 								<br><br>
-								<h3 class="text-light">
-									No account yet?
-								</h3>
-								<?php $register = base_url() . "Register" ?>
+								<?php $contact = base_url() . "Contact_Page" ?>
 
-								<a class="btn btn-block btn-raised btn-primary" href="<?= $register ?>">Sign up here</a>
+								<h5 class="text-light" style="color:blue">
+									Contact us <a href="<?= $contact ?>">here...</a>
+								</h5>
+
 								<br><br>
 
 							</div>
