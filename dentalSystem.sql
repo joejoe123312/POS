@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2021 at 11:20 AM
+-- Generation Time: Oct 21, 2021 at 08:04 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.3.29
 
@@ -56,6 +56,13 @@ CREATE TABLE `diagnose_to_seek` (
   `time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `diagnose_to_seek`
+--
+
+INSERT INTO `diagnose_to_seek` (`id`, `patient_id`, `date`, `time`) VALUES
+(4, 1, '2021-10-06', '2021-10-21 04:02:48');
+
 -- --------------------------------------------------------
 
 --
@@ -69,13 +76,6 @@ CREATE TABLE `doctor_record` (
   `lastname` varchar(65) NOT NULL,
   `contact_number` varchar(65) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `doctor_record`
---
-
-INSERT INTO `doctor_record` (`id`, `firstname`, `middlename`, `lastname`, `contact_number`) VALUES
-(1, 'firstname', 'middlename', 'lastname', '09565791354985');
 
 -- --------------------------------------------------------
 
@@ -126,7 +126,7 @@ CREATE TABLE `env_sanitation_rescident_record` (
 CREATE TABLE `medicine` (
   `id` int(65) NOT NULL,
   `patient_id` int(65) NOT NULL,
-  `given_medicine` varchar(65) NOT NULL,
+  `given_medicine` text NOT NULL,
   `date` datetime NOT NULL,
   `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -155,8 +155,9 @@ CREATE TABLE `patient_record` (
   `firstname` varchar(65) NOT NULL,
   `middlename` varchar(65) NOT NULL,
   `lastname` varchar(65) NOT NULL,
+  `fullname` text NOT NULL,
   `age` int(65) NOT NULL,
-  `gender` int(65) NOT NULL,
+  `gender` varchar(65) NOT NULL,
   `height` varchar(65) NOT NULL,
   `weight` varchar(65) NOT NULL,
   `civil_status` varchar(65) NOT NULL
@@ -166,16 +167,10 @@ CREATE TABLE `patient_record` (
 -- Dumping data for table `patient_record`
 --
 
-INSERT INTO `patient_record` (`id`, `firstname`, `middlename`, `lastname`, `age`, `gender`, `height`, `weight`, `civil_status`) VALUES
-(1, 'Joel', 'John', 'Centeno', 22, 0, '5', '70', '70'),
-(2, 'Joel', 'John', 'Centeno', 22, 0, '5', '70', 'single'),
-(3, 'Joel', 'John', 'Centeno', 22, 0, '5', '70', 'single'),
-(4, 'Joel', 'John', 'Centeno', 22, 0, '5', '70', 'single'),
-(5, 'Joel', 'John', 'Centeno', 22, 0, '5', '70', 'single'),
-(6, 'Joel', 'John', 'Centeno', 22, 0, '5', '70', 'single'),
-(7, 'Joel', 'John', 'Centeno', 22, 0, '5', '70', 'single'),
-(8, 'Joel', 'John', 'Centeno', 22, 0, '5', '70', 'single'),
-(9, 'Joel', 'John', 'Centeno', 22, 0, '5', '70', 'single');
+INSERT INTO `patient_record` (`id`, `firstname`, `middlename`, `lastname`, `fullname`, `age`, `gender`, `height`, `weight`, `civil_status`) VALUES
+(20, 'Joel', 'John', 'Centeno', 'Joel John Centeno', 1, 'Male', 'testsdfsdf', 'test', 'Single'),
+(21, 'Jhay', 'Joshua', 'Ramirez', 'John Joshua Jhay Ramirez', 1, 'Male', '1', '1', 'Single'),
+(29, 'TEST', 'TEST', 'TEST', 'TEST TEST TEST', 1, 'Male', 'test', 'test', 'Single');
 
 -- --------------------------------------------------------
 
@@ -410,13 +405,13 @@ ALTER TABLE `credentials`
 -- AUTO_INCREMENT for table `diagnose_to_seek`
 --
 ALTER TABLE `diagnose_to_seek`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `doctor_record`
 --
 ALTER TABLE `doctor_record`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `doctor_time_in`
@@ -434,7 +429,7 @@ ALTER TABLE `env_sanitation_rescident_record`
 -- AUTO_INCREMENT for table `medicine`
 --
 ALTER TABLE `medicine`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `patient_checkup_dates`
@@ -446,7 +441,7 @@ ALTER TABLE `patient_checkup_dates`
 -- AUTO_INCREMENT for table `patient_record`
 --
 ALTER TABLE `patient_record`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `prescription_management`
