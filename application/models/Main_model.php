@@ -168,7 +168,7 @@ class Main_model extends CI_Model
 
         foreach ($table->result() as $row) {
             $data['firstname'] = ucfirst($row->firstname);
-            $data['middlename'] = ucfirst($row->firstname);
+            $data['middlename'] = ucfirst($row->middlename);
             $data['lastname'] = ucfirst($row->lastname);
         }
         return $data;

@@ -15,8 +15,8 @@ class Command_medicine extends CI_Controller
     {
         $insert['patient_id'] = $this->input->post('patient_id');
         $insert['given_medicine'] = $this->input->post('given_medicine');
-        $insert['Date'] = $this->input->post('date');	
-        $insert['time'] = $this->input->post('time');
+        $insert['Date'] = date("Y-m-d");	
+        $insert['time'] = date("h:i:s a");
         
         $result = $this->Main_model->_insert('medicine', $insert);
         return $result;
@@ -28,8 +28,8 @@ class Command_medicine extends CI_Controller
 
         $update['patient_id'] = $this->input->post('patient_id');
         $update['given_medicine'] = $this->input->post('given_medicine');
-        $update['Date'] = $this->input->post('date');	
-        $update['time'] = $this->input->post('time');
+        $update['Date'] = date("Y-m-d");	
+        $insert['time'] = date("h:i:s a");
 
         $this->Main_model->_update("medicine", "id", $id, $update);
     }

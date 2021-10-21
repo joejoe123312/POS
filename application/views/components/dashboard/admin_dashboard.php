@@ -134,6 +134,8 @@
                                         </div>
                                         <!--end .card -->
                                         <em class="text-caption">Please check the records above.</em>
+
+                                        <a id="medicineButton"><button class="btn btn-primary btn-sm">Medicines</button></a>
                                     </div>
                                     <!-- End Content Result -->
                                 </div>
@@ -179,7 +181,9 @@
                 $.post("<?= base_url() ?>/Query_patientRecord/multipleWhere", {
                     whereString: JSON.stringify([{"fullname": searchInput}])
                 },function(resp){
-                    console.log(resp);
+                    resp = JSON.parse(resp)[0];
+                    let medicineUrl = "<?= base_url() ?>Medicine?id=" + resp.id;
+                    $("#medicineButton").attr('href', medicineUrl);
                 });
             });
         });
