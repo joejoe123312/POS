@@ -163,9 +163,12 @@ class Main_model extends CI_Model
     function getFullNameSliced($table, $column, $teacherId)
     {
         $table = $this->Main_model->get_where($table, $column, $teacherId);
+        
+        if(Count($table->result_array()) == 0 ) return null;
 
         foreach ($table->result() as $row) {
             $data['firstname'] = ucfirst($row->firstname);
+            $data['middlename'] = ucfirst($row->firstname);
             $data['lastname'] = ucfirst($row->lastname);
         }
         return $data;

@@ -13,7 +13,7 @@ class Command_patient extends CI_Controller
 
     public function create()
     {
-        $insert['firstname'] = $this->input->post("firstname");
+        $update['firstname'] = $this->input->post("firstname");
 		$insert['middlename'] = $this->input->post("middlename");	
 		$insert['lastname'] = $this->input->post("lastname");
 		$insert['age'] = $this->input->post("age");
@@ -21,6 +21,7 @@ class Command_patient extends CI_Controller
 		$insert['height'] = $this->input->post("height");
 		$insert['weight'] = $this->input->post("weight");
 		$insert['civil_status'] = $this->input->post("civil_status");
+        $insert['fullname'] = $insert['firstname'] + " " + $insert['middlename'] + " " + $insert['lastname'];
         
         $result = $this->Main_model->_insert('patient_record', $insert);
         return $result;
@@ -38,6 +39,7 @@ class Command_patient extends CI_Controller
 		$update['height'] = $this->input->post("height");
 		$update['weight'] = $this->input->post("weight");
 		$update['civil_status'] = $this->input->post("civil_status"); 
+        $update['fullname'] = $update['firstname'] + " " + $update['middlename'] + " " + $update['lastname'];
 
         $this->Main_model->_update("patient_record", "id", $id, $update);
     }
@@ -48,7 +50,6 @@ class Command_patient extends CI_Controller
 
         $this->Main_model->_delete("patient_record", "id", $id);
     }
-
     
     public function testing()
     {

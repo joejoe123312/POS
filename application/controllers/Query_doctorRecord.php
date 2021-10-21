@@ -30,4 +30,28 @@ class Query_doctorRecord extends CI_Controller
         $jsonWhere = json_decode($this->input->post("whereString"));
         echo json_encode( $this->Main_model->multiple_where($this->table, $jsonWhere)->result_array());
     }
+
+    public function getAllFortable()
+    {
+        $query = $this->Main_model->get($this->table, "id")->result();
+
+        $counter = 0;
+        foreach ($query as $data) {
+            $counter++;
+            
+            echo '
+                <tr>
+                    <td>'. $counter .'</td>
+                    <td>'. $data->firstname .'</td>
+                    <td>'. $data->middlename .'</td>
+                    <td>'. $data->lastname .'</td>
+                    <td>'. $data->contact_number .'</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm edit" value="'. $data->id .'">edit</button>
+                        <button class="btn btn-danger btn-sm delete" value="'. $data->id .'">delete</button>
+                    </td>
+                </tr>
+            ';
+        }
+    }
 }
