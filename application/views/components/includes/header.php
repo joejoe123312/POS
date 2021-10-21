@@ -47,7 +47,7 @@
                 <ul class="header-nav header-nav-options">
                     <li class="header-nav-brand">
                         <div class="brand-holder">
-                            <a href="<?= base_url() ?>html/dashboards/dashboard.html">
+                            <a href="<?= base_url() ?>">
                                 <span class="text-lg text-bold text-primary">CLINIC SYSTEM</span>
                             </a>
                         </div>
