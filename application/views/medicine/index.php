@@ -10,25 +10,45 @@
     <!-- BEGIN CONTENT-->
 
     <div id="content">
+
         <section>
             <div class="section-body">
-                <h1>Medicines given to <u><?= $fullname ?></u></h1>
-                
-                <button class="btn btn-success btn-sm" id="addBtn"  data-toggle="modal" data-target="#modal">Add</button>
+                <center>
 
-                <table class=table table-striped no-margin">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Given medicine</th>
-                            <th>Date</th>
-                            <th>Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      <!-- Ajax -->
-                    </tbody>
-                </table>
+                    <div class="card-head style-primary">
+                        <header>
+                            <h2>Medicines given to : <?= $fullname ?></h2>
+                        </header>
+                    </div>
+                </center>
+
+                <div class="col-lg-12">
+                    <button type="button" class="btn ink-reaction btn-primary" id="addBtn" data-toggle="modal" data-target="#modal" style="margin-top:5px;margin-bottom:5px">Button</button>
+
+                    <div class="card">
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table no-margin">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Given medicine</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!--end .table-responsive -->
+                        </div>
+                        <!--end .card-body -->
+                    </div>
+                    <!--end .card -->
+                </div>
             </div>
             <!--end .section-body -->
         </section>
@@ -36,58 +56,58 @@
     <!--end #content-->
     <!-- END CONTENT -->
 
-   <!-- Modal -->
+    <!-- Modal -->
     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-            <form>
-                <div class="modal-header">
-                    <h3 align="center" class="modal-title" id="modalTitle">ADD</h3 align="center">
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="form-group">
-                        <label>Given medicine</label>
-                        <textarea id="givenMedicine" placeholder="Ibeuprofen, Paracetamol etc..." class="form-control"></textarea>
+                <form>
+                    <div class="modal-header">
+                        <h3 align="center" class="modal-title" id="modalTitle">ADD</h3 align="center">
+                        </button>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" id="submitBtn">SUBMIT</button>
-                </div>
-            </form>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label>Given medicine</label>
+                            <textarea id="givenMedicine" placeholder="Ibeuprofen, Paracetamol etc..." class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">SUBMIT</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
 </div>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         // GET ALL PATIENTS
         refreshTable();
-        function refreshTable()
-        {
+
+        function refreshTable() {
             $("tbody").load("<?= base_url() ?>/Query_medicine/getAllForTable?id=" + "<?= $patientId ?>");
         }
-        
+
         let patientId = "<?= $patientId ?>";
 
         // CREATE
         $(document).on("click", "#addBtn", () => $('form').attr("id", "createForm"));
-        
+
         // EDIT
-        $(document).on("click",".edit", function(){
+        $(document).on("click", ".edit", function() {
             let Id = $(this).val();
-            
+
             $.post("<?= base_url() ?>/Query_medicine/getById", {
                 id: Id
-            }, function(resp){
+            }, function(resp) {
                 resp = JSON.parse(resp)[0];
-                
+
                 // change the modal title 
                 $('#modalTitle').text("UPDATE");
-                
+
                 $("#givenMedicine").val(resp.given_medicine);
 
                 // change id of createForm -> updateForm
@@ -101,9 +121,9 @@
         });
 
         //DELETE BUTTON
-        $(document).on("click", ".delete", function(){
+        $(document).on("click", ".delete", function() {
             let Id = $(this).val();
-            
+
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -112,15 +132,15 @@
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
+            }).then((result) => {
                 if (result.isConfirmed) {
 
                     // SEND DELETION POST REQUEST
                     $.post("<?= base_url() ?>/Command_medicine/delete", {
-                        id:Id
-                    }, function(){
+                        id: Id
+                    }, function() {
                         refreshTable();
-                        
+
                         Swal.fire(
                             'Deleted!',
                             'Record has been deleted',
@@ -133,7 +153,7 @@
         });
 
         // CREATE POST REQUEST FORM SUBMISITION
-        $(document).on("submit", "#createForm",function(event){
+        $(document).on("submit", "#createForm", function(event) {
             event.preventDefault();
             $('#modal').modal("hide");
 
@@ -141,7 +161,7 @@
             $.post("<?= base_url() ?>/Command_medicine/create", {
                 patient_id: patientId,
                 given_medicine: $("#givenMedicine").val()
-            }, function(resp){
+            }, function(resp) {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -149,20 +169,20 @@
                     showConfirmButton: false,
                     timer: 1500
                 });
-                
+
                 refreshTable();
             });
         });
 
         // UPDATE POST REQUEST FORM SUBMISITION
-        $(document).on("submit", "#updateForm",function(event){
+        $(document).on("submit", "#updateForm", function(event) {
             event.preventDefault();
-            
+
             $.post("<?= base_url() ?>/Command_medicine/update", {
                 id: $("#submitBtn").val(),
                 patient_id: patientId,
                 given_medicine: $("#givenMedicine").val()
-            }, function(resp){
+            }, function(resp) {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -175,8 +195,7 @@
 
                 $('#modal').modal("hide");
             });
-            
+
         });
     });
 </script>
-    
