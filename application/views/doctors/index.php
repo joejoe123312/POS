@@ -14,7 +14,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h4>Manage Doctors</h4>
+
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal" id="addBtn">
+                        Add
+                    </button>
                 </div>
+
+                <div style="margin-bottom:15px"></div>
+                &nbsp;
                 <!--end .col -->
 
                 <!--end .col -->

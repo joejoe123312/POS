@@ -14,9 +14,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h4>Manage Patient</h4>
+                    
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal" id="addBtn">
+                        Add
+                    </button>
                 </div>
                 <!--end .col -->
-
+                <div style="margin-bottom:5px"></div>
+                &nbsp;
                 <!--end .col -->
                 <div class="col-lg-12">
                     <div class="card">
@@ -53,6 +58,72 @@
         </section>
     </div>
 
+     <!-- Modal -->
+     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h3 align="center" class="modal-title" id="modalTitle">CREATE</h3 align="center">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <div class="col-md-4">
+                            <label>First name</label>
+                            <input type="text" placeholder="Enter first name here" id="firstname" class="form-control" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Middle name</label>
+                            <input type="text" placeholder="Enter middle name here" id="middlename" class="form-control" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Last name</label>
+                            <input type="text" placeholder="Enter last name here" id="lastname" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" placeholder="Enter age here" id="age" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <select name="" id="gender" class="form-control" required>
+                            <option value="">Select gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <label>Height</label>
+                            <input type="text" placeholder="Enter height here" id="height" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Weight</label>
+                            <input type="text" placeholder="Enter weight here" id="weight" class="form-control" required>
+                        </div>
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <select name="" id="civil_status" class="form-control" required>
+                            <option value="">Select civil status</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">SUBMIT</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
 
 
     <!--end #content-->
