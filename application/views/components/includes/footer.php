@@ -34,6 +34,14 @@
                 </a>
             </li>
             <!-- End Manage Patients -->
+            <!-- Manage Doctors -->
+            <li>
+                <a href="<?= base_url() . "Doctors" ?>">
+                    <div class="gui-icon"><i class="fa fa-plus"></i></div>
+                    <span class="title">Manage Doctors</span>
+                </a>
+            </li>
+            <!-- End Manage Doctors -->
 
 
 

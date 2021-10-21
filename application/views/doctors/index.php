@@ -11,98 +11,113 @@
 
     <div id="content">
         <section>
-            <div class="section-body">
-                <h1>Manage Doctors</h1>
-                
-                <button class="btn btn-success btn-sm" id="addBtn"  data-toggle="modal" data-target="#modal">Add</button>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>Manage Doctors</h4>
+                </div>
+                <!--end .col -->
 
-                <table class=table table-striped no-margin">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First name</th>
-                            <th>Middle name</th>
-                            <th>Last name</th>
-                            <th>Contact number</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      <!-- Ajax -->
-                    </tbody>
-                </table>
+                <!--end .col -->
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table no-margin">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>First name</th>
+                                            <th>Middle name</th>
+                                            <th>Last name</th>
+                                            <th>Contact number</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!--end .table-responsive -->
+                        </div>
+                        <!--end .card-body -->
+                    </div>
+                    <!--end .card -->
+                </div>
+                <!--end .col -->
             </div>
-            <!--end .section-body -->
         </section>
     </div>
+
+
+
     <!--end #content-->
     <!-- END CONTENT -->
-
-   <!-- Modal -->
+    <!-- Modal -->
     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-            <form>
-                <div class="modal-header">
-                    <h3 align="center" class="modal-title" id="modalTitle">CREATE</h3 align="center">
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group row">
-                        <div class="col-md-4">
-                            <label>First name</label>
-                            <input type="text" placeholder="Enter first name here" id="firstname" class="form-control" required>
-                        </div>
-                        <div class="col-md-4">
-                            <label>Middle name</label>
-                            <input type="text" placeholder="Enter middle name here" id="middlename" class="form-control" required>
-                        </div>
-                        <div class="col-md-4">
-                            <label>Last name</label>
-                            <input type="text" placeholder="Enter last name here" id="lastname" class="form-control" required>
-                        </div>
+                <form>
+                    <div class="modal-header">
+                        <h3 align="center" class="modal-title" id="modalTitle">CREATE</h3 align="center">
+                        </button>
                     </div>
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <div class="col-md-4">
+                                <label>First name</label>
+                                <input type="text" placeholder="Enter first name here" id="firstname" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Middle name</label>
+                                <input type="text" placeholder="Enter middle name here" id="middlename" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Last name</label>
+                                <input type="text" placeholder="Enter last name here" id="lastname" class="form-control" required>
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label>Contact number</label>
-                        <input type="text" placeholder="Enter contact number here" id="contactNumber" class="form-control" required>
+                        <div class="form-group">
+                            <label>Contact number</label>
+                            <input type="text" placeholder="Enter contact number here" id="contactNumber" class="form-control" required>
+                        </div>
+
                     </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" id="submitBtn">SUBMIT</button>
-                </div>
-            </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">SUBMIT</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
 </div>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         // GET ALL PATIENTS
         refreshTable();
-        function refreshTable()
-        {
+
+        function refreshTable() {
             $("tbody").load("<?= base_url() ?>/Query_doctorRecord/getAllFortable");
         }
 
         // CREATE
         $(document).on("click", "#addBtn", () => $('form').attr("id", "createForm"));
-        
+
         // EDIT
-        $(document).on("click",".edit", function(){
+        $(document).on("click", ".edit", function() {
             let Id = $(this).val();
-            
+
             $.post("<?= base_url() ?>/Query_doctorRecord/getById", {
                 id: Id
-            }, function(resp){
+            }, function(resp) {
                 resp = JSON.parse(resp)[0];
-                
+
                 // change the modal title 
                 $('#modalTitle').text("UPDATE");
-                
+
                 $("#firstname").val(resp.firstname);
                 $("#middlename").val(resp.middlename);
                 $("#lastname").val(resp.lastname);
@@ -119,9 +134,9 @@
         });
 
         //DELETE BUTTON
-        $(document).on("click", ".delete", function(){
+        $(document).on("click", ".delete", function() {
             let Id = $(this).val();
-            
+
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -130,15 +145,15 @@
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
+            }).then((result) => {
                 if (result.isConfirmed) {
 
                     // SEND DELETION POST REQUEST
                     $.post("<?= base_url() ?>/Command_doctorRecord/delete", {
-                        id:Id
-                    }, function(){
+                        id: Id
+                    }, function() {
                         refreshTable();
-                        
+
                         Swal.fire(
                             'Deleted!',
                             'Record has been deleted',
@@ -151,17 +166,17 @@
         });
 
         // CREATE POST REQUEST FORM SUBMISITION
-        $(document).on("submit", "#createForm",function(event){
+        $(document).on("submit", "#createForm", function(event) {
             event.preventDefault();
             $('#modal').modal("hide");
-            
+
             // create command post ajax 
             $.post("<?= base_url() ?>/Command_doctorRecord/create", {
                 firstname: $("#firstname").val(),
                 middlename: $("#middlename").val(),
                 lastname: $("#lastname").val(),
                 contact_number: $("#contactNumber").val()
-            }, function(resp){
+            }, function(resp) {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -169,15 +184,15 @@
                     showConfirmButton: false,
                     timer: 1500
                 });
-                
+
                 refreshTable();
             });
         });
 
         // UPDATE POST REQUEST FORM SUBMISITION
-        $(document).on("submit", "#updateForm",function(event){
+        $(document).on("submit", "#updateForm", function(event) {
             event.preventDefault();
-            
+
             $.post("<?= base_url() ?>/Command_patient/update", {
                 id: $("#submitBtn").val(),
                 firstname: $("#firstname").val(),
@@ -188,7 +203,7 @@
                 height: $("#height").val(),
                 weight: $("#weight").val(),
                 civil_status: $("#civil_status").val()
-            }, function(resp){
+            }, function(resp) {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -201,8 +216,7 @@
 
                 $('#modal').modal("hide");
             });
-            
+
         });
     });
 </script>
-    
