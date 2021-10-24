@@ -14,8 +14,9 @@ class Command_diagnoseToSeek extends CI_Controller
     public function create()
     {
         $insert['patient_id'] = $this->input->post('patient_id');
-        $insert['Date'] = $this->input->post('date');	
-        $insert['time'] = $this->input->post('time');
+        $insert['date'] = date("Y-m-d");	
+        $insert['time'] = date("h:i:s ");
+        $insert['diagnosis'] = $this->input->post("diagnosis");
         
         $result = $this->Main_model->_insert('diagnose_to_seek', $insert);
         return $result;
@@ -26,8 +27,9 @@ class Command_diagnoseToSeek extends CI_Controller
         $id = $this->input->post('id');
 
         $update['patient_id'] = $this->input->post('patient_id');
-        $update['Date'] = $this->input->post('date');	
-        $update['time'] = $this->input->post('time');
+        $update['date'] = date("Y-m-d");	
+        $update['time'] = date("h:i:s a");
+        $update['diagnosis'] = $this->input->post("diagnosis");
 
         $this->Main_model->_update("diagnose_to_seek", "id", $id, $update);
     }

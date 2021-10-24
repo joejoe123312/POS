@@ -200,7 +200,7 @@
         $(document).on("submit", "#updateForm", function(event) {
             event.preventDefault();
 
-            $.post("<?= base_url() ?>/Command_patient/update", {
+            $.post("<?= base_url() ?>/Command_doctorRecord/update", {
                 id: $("#submitBtn").val(),
                 firstname: $("#firstname").val(),
                 middlename: $("#middlename").val(),

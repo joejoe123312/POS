@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2021 at 08:04 AM
+-- Generation Time: Oct 24, 2021 at 01:32 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.3.29
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dentalsystem`
+-- Database: `clinicsystem`
 --
 
 -- --------------------------------------------------------
@@ -53,15 +53,16 @@ CREATE TABLE `diagnose_to_seek` (
   `id` int(65) NOT NULL,
   `patient_id` int(65) NOT NULL,
   `date` date NOT NULL,
-  `time` datetime NOT NULL
+  `time` time NOT NULL,
+  `diagnosis` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `diagnose_to_seek`
 --
 
-INSERT INTO `diagnose_to_seek` (`id`, `patient_id`, `date`, `time`) VALUES
-(4, 1, '2021-10-06', '2021-10-21 04:02:48');
+INSERT INTO `diagnose_to_seek` (`id`, `patient_id`, `date`, `time`, `diagnosis`) VALUES
+(4, 42, '2021-10-06', '04:02:48', 'diagnosis testing');
 
 -- --------------------------------------------------------
 
@@ -168,9 +169,7 @@ CREATE TABLE `patient_record` (
 --
 
 INSERT INTO `patient_record` (`id`, `firstname`, `middlename`, `lastname`, `fullname`, `age`, `gender`, `height`, `weight`, `civil_status`) VALUES
-(20, 'Joel', 'John', 'Centeno', 'Joel John Centeno', 1, 'Male', 'testsdfsdf', 'test', 'Single'),
-(21, 'Jhay', 'Joshua', 'Ramirez', 'John Joshua Jhay Ramirez', 1, 'Male', '1', '1', 'Single'),
-(29, 'TEST', 'TEST', 'TEST', 'TEST TEST TEST', 1, 'Male', 'test', 'test', 'Single');
+(42, 'Joel ', 'John', 'Centeno', 'Joel  John Centeno', 22, 'Male', '178 cm', '75 lbs', 'Single');
 
 -- --------------------------------------------------------
 
@@ -255,6 +254,15 @@ CREATE TABLE `symptoms_complains` (
   `complain` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `symptoms_complains`
+--
+
+INSERT INTO `symptoms_complains` (`id`, `patient_id`, `date`, `time`, `complain`) VALUES
+(2, 42, '2021-10-24', '08:53:48', 'test 2'),
+(3, 0, '2021-10-24', '09:10:04', 'third complain'),
+(6, 0, '2021-10-24', '10:43:03', 'test');
+
 -- --------------------------------------------------------
 
 --
@@ -288,7 +296,8 @@ CREATE TABLE `vital_signs_measure` (
   `id` int(65) NOT NULL,
   `patient_id` int(65) NOT NULL,
   `date` date NOT NULL,
-  `time` time NOT NULL
+  `time` time NOT NULL,
+  `vital_measure` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -405,13 +414,13 @@ ALTER TABLE `credentials`
 -- AUTO_INCREMENT for table `diagnose_to_seek`
 --
 ALTER TABLE `diagnose_to_seek`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `doctor_record`
 --
 ALTER TABLE `doctor_record`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `doctor_time_in`
@@ -429,7 +438,7 @@ ALTER TABLE `env_sanitation_rescident_record`
 -- AUTO_INCREMENT for table `medicine`
 --
 ALTER TABLE `medicine`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `patient_checkup_dates`
@@ -441,7 +450,7 @@ ALTER TABLE `patient_checkup_dates`
 -- AUTO_INCREMENT for table `patient_record`
 --
 ALTER TABLE `patient_record`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `prescription_management`
@@ -477,7 +486,7 @@ ALTER TABLE `schedule_underweight_children`
 -- AUTO_INCREMENT for table `symptoms_complains`
 --
 ALTER TABLE `symptoms_complains`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -489,7 +498,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `vital_signs_measure`
 --
 ALTER TABLE `vital_signs_measure`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

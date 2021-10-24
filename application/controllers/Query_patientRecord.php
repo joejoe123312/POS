@@ -26,9 +26,15 @@ class Query_patientRecord extends CI_Controller
 
     public function multipleWhere()
     {
+        // $_POST['whereString'] = ' [{
+        //     "fullname": Joel John Centeno
+        // }]';
         // will accept where json object 
         $jsonWhere = json_decode($this->input->post("whereString"), true);
-        echo json_encode($this->Main_model->multiple_where($this->table, $jsonWhere[0])->result_array());
+        
+        echo $foundUser = json_encode($this->Main_model->multiple_where($this->table, $jsonWhere[0])->result_array());
+
+        $this->session->set_userdata('foundUser', $foundUser);
     }
 
     public function getPatientFullNames()

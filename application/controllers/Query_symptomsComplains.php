@@ -30,4 +30,27 @@ class Query_symptomsComplains extends CI_Controller
         $jsonWhere = json_decode($this->input->post("whereString"));
         echo json_encode($this->Main_model->multiple_where($this->table, $jsonWhere)->result_array());
     }
+
+    public function getForTable()
+    {
+        $patientId = $this->input->post('patient_id');
+        $result = $this->Main_model->get_where($this->table, "patient_id", $patientId);
+
+        $counter = 0;
+        foreach ($result->result() as $row) {
+            $counter ++;
+            echo '
+            <tr>
+                <td>'. $counter .'</td>
+                <td>'. $row->date .'</td>
+                <td>'. $row->time .'</td>
+                <td>' . $row->complain . '</td>
+                <td>
+                    <button class="btn btn-secondary btn-sm sympEdit" value="'. $row->id .'">Edit</button>
+                    <button class="btn btn-danger btn-sm sympDelete" value="'. $row->id .'">Delete</button>
+                </td>
+            </tr>
+            ';
+        }
+    }
 }

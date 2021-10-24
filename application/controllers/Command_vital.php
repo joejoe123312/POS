@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Command_symptomsComplains extends CI_Controller
+class Command_vital extends CI_Controller
 {
     public $authKey;
 
@@ -16,9 +16,9 @@ class Command_symptomsComplains extends CI_Controller
         $insert['patient_id'] = $this->input->post('patient_id');
         $insert['date'] = date("Y-m-d");
         $insert['time'] = date("h:i:s a");
-        $insert['complain'] = $this->input->post('complain');
+        $insert['vital_measure'] = $this->input->post('vital_measure');
                 
-        $result = $this->Main_model->_insert('symptoms_complains', $insert);
+        $result = $this->Main_model->_insert('vital_signs_measure', $insert);
         return $result;
     }
 
@@ -29,15 +29,15 @@ class Command_symptomsComplains extends CI_Controller
         $update['patient_id'] = $this->input->post('patient_id');
         $update['date'] = date("Y-m-d");
         $update['time'] = date("h:i:s a");
-        $update['complain'] = $this->input->post('complain');
+        $update['vital_measure'] = $this->input->post('vital_measure');
 
-        $this->Main_model->_update("symptoms_complains", "id", $id, $update);
+        $this->Main_model->_update("vital_signs_measure", "id", $id, $update);
     }
 
     public function delete()
     {
         $id = $this->input->post("id");
 
-        $this->Main_model->_delete("symptoms_complains", "id", $id);
+        $this->Main_model->_delete("vital_signs_measure", "id", $id);
     }
 }

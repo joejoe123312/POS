@@ -23,8 +23,11 @@
                 </center>
 
                 <div class="col-lg-12">
-                    <button type="button" class="btn ink-reaction btn-primary" id="addBtn" data-toggle="modal" data-target="#modal" style="margin-top:5px;margin-bottom:5px">Button</button>
-
+                    <div style="margin-top:10px"></div>
+                    &nbsp;
+                    <button type="button" class="btn ink-reaction btn-primary btn-sm" id="addBtn" data-toggle="modal" data-target="#modal" style="margin-top:5px;margin-bottom:5px">Add</button>
+                    <div style="margin-bottom:5px"></div>
+                    &nbsp;
                     <div class="card">
 
                         <div class="card-body">
