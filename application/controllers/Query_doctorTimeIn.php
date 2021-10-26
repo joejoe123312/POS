@@ -33,22 +33,19 @@ class Query_doctorTimeIn extends CI_Controller
 
     public function getAllFortable()
     {
-        $query = $this->Main_model->get($this->table, "id")->result();
+        $id = $this->input->get("id");
+        $query = $this->Main_model->get_where($this->table, "doctor_id", $id)->result();
 
         $counter = 0;
         foreach ($query as $data) {
             $counter++;
-            $fullnameSliced = $this->Main_model->getFullNameSliced("doctor_record", "id", $data->doctor_id);
+
             echo '
                 <tr>
                     <td>'. $counter .'</td>
-                    <td>'. $fullnameSliced['firstname'] .'</td>
-                    <td>'. $fullnameSliced['middlename'] .'</td>
-                    <td>'. $fullnameSliced['lastname'] .'</td>
                     <td>'. $data->date .'</td>
                     <td>'. $data->time .'</td>
                     <td>
-                        <button class="btn btn-primary btn-sm edit" value="'. $data->id .'">edit</button>
                         <button class="btn btn-danger btn-sm delete" value="'. $data->id .'">delete</button>
                     </td>
                 </tr>

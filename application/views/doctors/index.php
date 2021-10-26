@@ -225,5 +225,11 @@
             });
 
         });
+
+        $(document).on("click", ".visit", function(){
+            let id = $(this).val();
+
+            window.location.replace("<?= base_url() ?>Doctors/visitations?id=" + id);
+        });
     });
 </script>

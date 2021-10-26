@@ -42,7 +42,25 @@
                 </a>
             </li>
             <!-- End Manage Doctors -->
-
+            <!-- Manage Doctors -->
+            <li class="gui-folder">
+                <a>
+                    <div class="gui-icon"><i class="md md-local-hospital"></i></div>
+                    <span class="title">Programs</span>
+                </a>
+                <!--start submenu -->
+                <ul style="display: none;">
+                    <li><a href="<?= base_url() ?>BabiesImmunization"><span class="title">Immunization of babies</span></a></li>
+                    <li><a href="<?= base_url() ?>PregnantImmunization"><span class="title">Immunization of pregnant</span></a></li>
+                    <li><a href="<?= base_url() ?>HighbloodMaintenance"><span class="title">Highblood maintenance</span></a></li>
+                    <li><a href="<?= base_url() ?>TuberculosisMaintenance"><span class="title">Tuberculosis maintenance</span></a></li>
+                    <li><a href="<?= base_url() ?>FamilyPlanning"><span class="title">Family planning</span></a></li>
+                    <li><a href="<?= base_url() ?>UnderweightChildren"><span class="title">Monitoring of underweight children</span></a></li>
+                    <li><a href="<?= base_url() ?>EnvironmentalSanitation"><span class="title">Environmental Sanitation</span></a></li>
+                </ul>
+                <!--end /submenu -->
+            </li>
+            <!-- End Manage Doctors -->
 
 
 

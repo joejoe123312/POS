@@ -49,6 +49,7 @@ class Query_doctorRecord extends CI_Controller
                     <td>
                         <button class="btn btn-primary btn-sm edit" value="'. $data->id .'">edit</button>
                         <button class="btn btn-danger btn-sm delete" value="'. $data->id .'">delete</button>
+                        <button class="btn btn-info btn-sm visit" value="'. $data->id .'">Visitations</button>
                     </td>
                 </tr>
             ';

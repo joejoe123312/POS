@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 24, 2021 at 01:32 PM
+-- Generation Time: Oct 26, 2021 at 05:47 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.3.29
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `clinicsystem`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `baby_immunization`
+--
+
+CREATE TABLE `baby_immunization` (
+  `id` int(65) NOT NULL,
+  `patient_id` int(65) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `baby_immunization`
+--
+
+INSERT INTO `baby_immunization` (`id`, `patient_id`, `date`, `time`) VALUES
+(4, 45, '2021-10-26', '01:44:02');
 
 -- --------------------------------------------------------
 
@@ -78,6 +98,13 @@ CREATE TABLE `doctor_record` (
   `contact_number` varchar(65) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `doctor_record`
+--
+
+INSERT INTO `doctor_record` (`id`, `firstname`, `middlename`, `lastname`, `contact_number`) VALUES
+(12, 'Joel', 'John', 'Centeno', '09123929929');
+
 -- --------------------------------------------------------
 
 --
@@ -91,13 +118,6 @@ CREATE TABLE `doctor_time_in` (
   `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `doctor_time_in`
---
-
-INSERT INTO `doctor_time_in` (`id`, `doctor_id`, `date`, `time`) VALUES
-(1, 1, '2021-10-05', '16:34:58');
-
 -- --------------------------------------------------------
 
 --
@@ -106,16 +126,26 @@ INSERT INTO `doctor_time_in` (`id`, `doctor_id`, `date`, `time`) VALUES
 
 CREATE TABLE `env_sanitation_rescident_record` (
   `id` int(65) NOT NULL,
-  `firstname` varchar(65) NOT NULL,
-  `middlename` varchar(65) NOT NULL,
-  `lastname` varchar(65) NOT NULL,
-  `age` int(65) NOT NULL,
-  `purok` varchar(65) NOT NULL,
-  `has_compospit` tinyint(1) NOT NULL,
-  `has_garden` tinyint(1) NOT NULL,
-  `has_cr` tinyint(1) NOT NULL,
+  `no_compostPit` tinyint(1) NOT NULL,
+  `no_garden` tinyint(1) NOT NULL,
+  `no_cr` tinyint(1) NOT NULL,
+  `patient_id` int(65) NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `family_planning`
+--
+
+CREATE TABLE `family_planning` (
+  `id` int(65) NOT NULL,
+  `patient_id` int(65) NOT NULL,
+  `date` int(65) NOT NULL,
+  `time` int(65) NOT NULL,
+  `contraceptive` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -169,7 +199,7 @@ CREATE TABLE `patient_record` (
 --
 
 INSERT INTO `patient_record` (`id`, `firstname`, `middlename`, `lastname`, `fullname`, `age`, `gender`, `height`, `weight`, `civil_status`) VALUES
-(42, 'Joel ', 'John', 'Centeno', 'Joel  John Centeno', 22, 'Male', '178 cm', '75 lbs', 'Single');
+(45, 'Joel', 'John', 'Centeno', 'Joel John Centeno', 22, 'Male', '1234', '1234', 'Single');
 
 -- --------------------------------------------------------
 
@@ -208,9 +238,15 @@ CREATE TABLE `schedule_pregnant_immunization` (
   `id` int(65) NOT NULL,
   `patient_id` int(65) NOT NULL,
   `date` date NOT NULL,
-  `time` time NOT NULL,
-  `is_given_medicine` tinyint(1) NOT NULL
+  `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `schedule_pregnant_immunization`
+--
+
+INSERT INTO `schedule_pregnant_immunization` (`id`, `patient_id`, `date`, `time`) VALUES
+(3, 45, '2021-10-26', '02:32:36');
 
 -- --------------------------------------------------------
 
@@ -222,8 +258,7 @@ CREATE TABLE `schedule_tuberculosis_maintenance` (
   `id` int(65) NOT NULL,
   `patient_id` int(65) NOT NULL,
   `date` date NOT NULL,
-  `time` time NOT NULL,
-  `is_given_medicine` tinyint(1) NOT NULL
+  `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -305,6 +340,12 @@ CREATE TABLE `vital_signs_measure` (
 --
 
 --
+-- Indexes for table `baby_immunization`
+--
+ALTER TABLE `baby_immunization`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `credentials`
 --
 ALTER TABLE `credentials`
@@ -332,6 +373,12 @@ ALTER TABLE `doctor_time_in`
 -- Indexes for table `env_sanitation_rescident_record`
 --
 ALTER TABLE `env_sanitation_rescident_record`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `family_planning`
+--
+ALTER TABLE `family_planning`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -405,6 +452,12 @@ ALTER TABLE `vital_signs_measure`
 --
 
 --
+-- AUTO_INCREMENT for table `baby_immunization`
+--
+ALTER TABLE `baby_immunization`
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `credentials`
 --
 ALTER TABLE `credentials`
@@ -420,19 +473,25 @@ ALTER TABLE `diagnose_to_seek`
 -- AUTO_INCREMENT for table `doctor_record`
 --
 ALTER TABLE `doctor_record`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `doctor_time_in`
 --
 ALTER TABLE `doctor_time_in`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `env_sanitation_rescident_record`
 --
 ALTER TABLE `env_sanitation_rescident_record`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `family_planning`
+--
+ALTER TABLE `family_planning`
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `medicine`
@@ -450,7 +509,7 @@ ALTER TABLE `patient_checkup_dates`
 -- AUTO_INCREMENT for table `patient_record`
 --
 ALTER TABLE `patient_record`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `prescription_management`
@@ -462,25 +521,25 @@ ALTER TABLE `prescription_management`
 -- AUTO_INCREMENT for table `schedule_highblood_maintenance`
 --
 ALTER TABLE `schedule_highblood_maintenance`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `schedule_pregnant_immunization`
 --
 ALTER TABLE `schedule_pregnant_immunization`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `schedule_tuberculosis_maintenance`
 --
 ALTER TABLE `schedule_tuberculosis_maintenance`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `schedule_underweight_children`
 --
 ALTER TABLE `schedule_underweight_children`
-  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(65) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `symptoms_complains`

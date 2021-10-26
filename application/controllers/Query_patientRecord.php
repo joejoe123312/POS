@@ -31,10 +31,8 @@ class Query_patientRecord extends CI_Controller
         // }]';
         // will accept where json object 
         $jsonWhere = json_decode($this->input->post("whereString"), true);
-        
-        echo $foundUser = json_encode($this->Main_model->multiple_where($this->table, $jsonWhere[0])->result_array());
 
-        $this->session->set_userdata('foundUser', $foundUser);
+        echo json_encode($this->Main_model->multiple_where($this->table, $jsonWhere[0])->result_array());
     }
 
     public function getPatientFullNames()
@@ -45,7 +43,7 @@ class Query_patientRecord extends CI_Controller
         foreach ($result as $data) {
             array_push($nameHolder, $data["fullname"]);
         }
-        
+
         echo json_encode($nameHolder);
     }
 
@@ -58,18 +56,18 @@ class Query_patientRecord extends CI_Controller
             $counter++;
             echo '
                 <tr>
-                    <td>'. $counter .'</td>
-                    <td>'. $data->firstname .'</td>
-                    <td>'. $data->middlename .'</td>
-                    <td>'. $data->lastname .'</td>
-                    <td>'. $data->age .'</td>
-                    <td>'. $data->gender .'</td>
-                    <td>'. $data->height .'</td>
-                    <td>'. $data->weight .'</td>
-                    <td>'. $data->civil_status .'</td>
+                    <td>' . $counter . '</td>
+                    <td>' . $data->firstname . '</td>
+                    <td>' . $data->middlename . '</td>
+                    <td>' . $data->lastname . '</td>
+                    <td>' . $data->age . '</td>
+                    <td>' . $data->gender . '</td>
+                    <td>' . $data->height . '</td>
+                    <td>' . $data->weight . '</td>
+                    <td>' . $data->civil_status . '</td>
                     <td>
-                        <button class="btn btn-primary btn-sm edit" value="'. $data->id .'">edit</button>
-                        <button class="btn btn-danger btn-sm delete" value="'. $data->id .'">delete</button>
+                        <button class="btn btn-primary btn-sm edit" value="' . $data->id . '">edit</button>
+                        <button class="btn btn-danger btn-sm delete" value="' . $data->id . '">delete</button>
                     </td>
                 </tr>
             ';

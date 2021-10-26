@@ -14,8 +14,8 @@ class Command_doctorTimeIn extends CI_Controller
     public function create()
     {	
         $insert['doctor_id'] = $this->input->post('doctor_id');
-        $insert['date'] = $this->input->post('date');
-        $insert['time'] = $this->input->post('time');
+        $insert['date'] = date("Y-m-d");
+        $insert['time'] = date("h:i:s a");
         
         $result = $this->Main_model->_insert('doctor_time_in', $insert);
         return $result;
@@ -26,8 +26,8 @@ class Command_doctorTimeIn extends CI_Controller
         $id = $this->input->post('id');
 
         $update['doctor_id'] = $this->input->post('doctor_id');
-        $update['date'] = $this->input->post('date');
-        $update['time'] = $this->input->post('time');
+        $update['date'] = date("Y-m-d");
+        $update['time'] = date("h:i:s a");
 
 
         $this->Main_model->_update("doctor_time_in", "id", $id, $update);
