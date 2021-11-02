@@ -20,51 +20,25 @@
                         <h1><?= $title ?></h1>
                         <hr style="width: 15%; border: none; height: 5px; background: #0AA89E;">
                         <h3><?= date("Y-m-d") ?></h3>
-                        <h4><a href="<?= base_url() . "ViewProgram?title=$title&db=schedule_highblood_maintenance" ?>">View All</a></h4>
+                        <h4><a href="<?= base_url() . $returnUrl ?>">Back</a></h4>
                     </div>
 
-                    <!-- BEGIN SEARCH BAR -->
-                    <div class="card-body style-primary no-y-padding">
-                        <form class="form form-inverse">
-                            <div class="form-group">
-                                <div class="input-group input-group-lg">
-                                    <div class="input-group-content">
-                                        <input type="text" class="form-control" id="searchInput" placeholder="Enter patient's name here" autocomplete="off">
-                                        <div class="form-control-line"></div>
-                                    </div>
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-floating-action btn-default-bright" type="button" id="patientSearchBtn">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end .form-group -->
-                        </form>
-                    </div>
-                    <!--end .card-body -->
-                    <!-- END SEARCH BAR -->
-
-                    <div class="card-body" style="background-color: #EFEFEF;display:none;" id="recordTable">
+                    <div class="card-body" style="background-color: #EFEFEF;" id="recordTable">
                         <div class="table-responsive">
                             <table class="table no-margin">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Actions</th>
+                                        <?php foreach ($th as $row) { ?>
+                                            <th><?= $row ?></th>
+                                        <?php } ?>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?= $tr ?>
                                 </tbody>
                             </table>
                         </div>
 
-
-                        <div class="row" align="center" style="margin-top: 20px">
-                            <button class="btn btn-primary" id="recordBtn">Add today's record</button>
-                        </div>
                     </div>
 
 
@@ -120,7 +94,7 @@
             $("#recordBtn").click(function() {
                 let id = $(this).val();
 
-                $.post("<?= base_url() . $controllerName ?>/create", {
+                $.post("<?= base_url() ?>BabiesImmunization/create", {
                     id: id
                 }, function() {
                     refresh();
@@ -149,7 +123,7 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        $.post("<?= base_url() . $controllerName ?>/delete", {
+                        $.post("<?= base_url() ?>BabiesImmunization/delete", {
                             id: id
                         }, function() {
                             refresh();
@@ -178,7 +152,7 @@
     <script>
         // REFRESH TABLES START
         function refresh() {
-            $.post("<?= base_url() . $controllerName ?>/getByFullName", {
+            $.post("<?= base_url() ?>BabiesImmunization/getByFullName", {
                 fullname: patientName
             }, function(resp) {
                 $("tbody").html(resp);

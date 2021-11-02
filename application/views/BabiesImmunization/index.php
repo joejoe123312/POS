@@ -20,6 +20,7 @@
                         <h1>IMMUNIZATION OF BABIES</h1>
                         <hr style="width: 15%; border: none; height: 5px; background: #0AA89E;">
                         <h3><?= date("Y-m-d") ?></h3>
+                        <h4><a href="<?= base_url() . "ViewProgram?title=IMMUNIZATION OF BABIES&db=baby_immunization" ?>">View All</a></h4>
                     </div>
 
                     <!-- BEGIN SEARCH BAR -->
