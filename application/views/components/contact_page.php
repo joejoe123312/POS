@@ -58,94 +58,47 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="mobile">Mobile</label>
-                                                        <input type="text" class="form-control" id="mobile" name="mobile" value="9239929292" data-inputmask="'mask':'(999) 999-9999'" disabled>
+                                                        <label for="mobile">Midwife's Mobile</label>
+                                                        <input type="text" class="form-control" id="mobile" name="mobile" value="09657957318" data-inputmask="'mask':'(999) 999-9999'" disabled>
+                                                    </div>
+													<div class="form-group">
+                                                        <label for="mobile">Doctor's Mobile</label>
+                                                        <input type="text" class="form-control" id="mobile" name="mobile" value="09" data-inputmask="'mask':'(999) 999-9999'" disabled>
+                                                    </div>
+													<div class="form-group">
+                                                        <label for="mobile">BNS/BHW's Mobile</label>
+                                                        <input type="text" class="form-control" id="mobile" name="mobile" value="09" data-inputmask="'mask':'(999) 999-9999'" disabled>
                                                     </div>
                                                 </div>
                                                 <!--end .col -->
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="phone">Phone</label>
-
-                                                        <input type="text" class="form-control" id="phone" name="phone" value="8369209" data-inputmask="'mask':'(999) 999-9999'" disabled>
+													<div class="form-group">
+                                                        <label for="mobile">Purok</label>
+                                                        <input type="text" class="form-control" id="mobile" name="mobile" value="Pitaan" disabled>
+                                                    </div>
+													<div class="form-group">
+                                                        <label for="mobile">Barangay</label>
+                                                        <input type="text" class="form-control" id="mobile" name="mobile" value="Ammacian" disabled>
+                                                    </div>
+													<div class="form-group">
+                                                        <label for="mobile">Municipality</label>
+                                                        <input type="text" class="form-control" id="mobile" name="mobile" value="Pinukpuk" disabled>
+                                                    </div>
+													<div class="form-group">
+                                                        <label for="mobile">Province</label>
+                                                        <input type="text" class="form-control" id="mobile" name="mobile" value="Kalinga" disabled>
+                                                    </div>
+													<div class="form-group">
+                                                        <label for="mobile">Zip code</label>
+                                                        <input type="text" class="form-control" id="mobile" name="mobile" value="3806" disabled>
                                                     </div>
                                                 </div>
                                                 <!--end .col -->
                                             </div>
                                             <!--end .row -->
-                                            <div class="form-group">
-                                                <label for="email">Email</label>
-
-                                                <input type="email" class="form-control" id="email" name="email" value="kalingastateuniversity@ksu.com" disabled>
-                                            </div>
                                             <!--end .form-group -->
-                                            <div class="row">
-                                                <div class="col-md-8">
-                                                    <div class="form-group">
-                                                        <label for="street">Street</label>
-                                                        <input type="text" class="form-control" id="street" name="street" value="Magsaysay st" disabled>
-                                                    </div>
-                                                </div>
-                                                <!--end .col -->
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label for="streetnumber">Number</label>
-                                                        <input type="text" class="form-control" id="streetnumber" name="streetnumber" value="14 " disabled>
-                                                    </div>
-                                                </div>
-                                                <!--end .col -->
-                                            </div>
                                             <!--end .row -->
-                                            <div class="row">
-                                                <div class="col-md-8">
-                                                    <div class="form-group">
-                                                        <label for="city">City</label>
-                                                        <input type="text" class="form-control" id="city" name="city" value="Tabuk City" disabled>
-                                                    </div>
-                                                </div>
-                                                <!--end .col -->
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label for="zip">Zip</label>
-                                                        <input type="text" class="form-control" id="zip" name="zip" value="3500" disabled>
-                                                    </div>
-                                                </div>
-                                                <!--end .col -->
-                                            </div>
                                             <!--end .row -->
-                                        </div>
-                                        <!--end .col -->
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <div id="map-canvas" class="border-gray height-7" style="position: relative; overflow: hidden;">
-                                                    <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
-                                                        <div class="gm-err-container">
-                                                            <div class="gm-err-content">
-                                                                <div class="mapouter">
-                                                                    <div class="gmap_canvas"><iframe width="527" height="389" id="gmap_canvas" src="https://maps.google.com/maps?q=Kalinga%20Provincial%20Capitol&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://fmovies-online.net"></a><br>
-                                                                        <style>
-                                                                            .mapouter {
-                                                                                position: relative;
-                                                                                text-align: right;
-                                                                                height: 389px;
-                                                                                width: 527px;
-                                                                            }
-                                                                        </style><a href="https://www.embedgooglemap.net">embedgooglemap.net</a>
-                                                                        <style>
-                                                                            .gmap_canvas {
-                                                                                overflow: hidden;
-                                                                                background: none !important;
-                                                                                height: 389px;
-                                                                                width: 527px;
-                                                                            }
-                                                                        </style>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                         <!--end .col -->
                                     </div>
