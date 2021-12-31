@@ -1,79 +1,71 @@
 <!-- BEGIN MENUBAR-->
 <div id="menubar" class="menubar-inverse ">
-    <div class="menubar-fixed-panel">
-        <div>
-            <a class="btn btn-icon-toggle btn-default menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
-        <div class="expanded">
-            <a href="<?= base_url() ?>html/dashboards/dashboard.html">
-                <span class="text-lg text-bold text-primary ">MATERIAL&nbsp;ADMIN</span>
-            </a>
-        </div>
-    </div>
-    <div class="menubar-scroll-panel">
+	<div class="menubar-fixed-panel">
+		<div>
+			<a class="btn btn-icon-toggle btn-default menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+				<i class="fa fa-bars"></i>
+			</a>
+		</div>
+		<div class="expanded">
+			<a href="<?= base_url() ?>html/dashboards/dashboard.html">
+				<span class="text-lg text-bold text-primary ">MATERIAL&nbsp;ADMIN</span>
+			</a>
+		</div>
+	</div>
+	<div class="menubar-scroll-panel">
 
-        <!-- BEGIN MAIN MENU -->
-        <ul id="main-menu" class="gui-controls">
+		<!-- BEGIN MAIN MENU -->
+		<ul id="main-menu" class="gui-controls">
 
-            <!-- BEGIN DASHBOARD -->
-            <li>
-                <a href="<?= base_url() . "Dashboard" ?>" class="active">
-                    <div class="gui-icon"><i class="md md-home"></i></div>
-                    <span class="title">Dashboard</span>
-                </a>
-            </li>
-            <!--end /menu-li -->
-            <!-- END DASHBOARD -->
-            <!-- Manage Patients -->
-            <li>
-                <a href="<?= base_url() . "patients" ?>">
-                    <div class="gui-icon"><i class="fa fa-users"></i></div>
-                    <span class="title">Manage Patients</span>
-                </a>
-            </li>
-            <!-- End Manage Patients -->
-            <!-- Manage Doctors -->
-            <li>
-                <a href="<?= base_url() . "Doctors" ?>">
-                    <div class="gui-icon"><i class="fa fa-plus"></i></div>
-                    <span class="title">Manage Doctors</span>
-                </a>
-            </li>
-            <!-- End Manage Doctors -->
-            <!-- Manage Doctors -->
-            <li class="gui-folder">
-                <a>
-                    <div class="gui-icon"><i class="md md-local-hospital"></i></div>
-                    <span class="title">Programs</span>
-                </a>
-                <!--start submenu -->
-                <ul style="display: none;">
-                    <li><a href="<?= base_url() ?>BabiesImmunization"><span class="title">Immunization of babies</span></a></li>
-                    <li><a href="<?= base_url() ?>PregnantImmunization"><span class="title">Immunization of pregnant</span></a></li>
-                    <li><a href="<?= base_url() ?>HighbloodMaintenance"><span class="title">Highblood maintenance</span></a></li>
-                    <li><a href="<?= base_url() ?>TuberculosisMaintenance"><span class="title">Tuberculosis maintenance</span></a></li>
-                    <li><a href="<?= base_url() ?>FamilyPlanning"><span class="title">Family planning</span></a></li>
-                    <li><a href="<?= base_url() ?>UnderweightChildren"><span class="title">Monitoring of underweight children</span></a></li>
-                    <li><a href="<?= base_url() ?>EnvironmentalSanitation"><span class="title">Environmental Sanitation</span></a></li>
-                </ul>
-                <!--end /submenu -->
-            </li>
-            <!-- End Manage Doctors -->
+			<!-- BEGIN DASHBOARD -->
+			<li>
+				<a href="<?= base_url() . "Dashboard" ?>" class="active">
+					<div class="gui-icon"><i class="md md-home"></i></div>
+					<span class="title">Dashboard</span>
+				</a>
+			</li>
+			<!--end /menu-li -->
+			<!-- END DASHBOARD -->
+			<!-- Manage Doctors -->
+			<li>
+				<a href="<?= base_url() . "Products" ?>">
+					<div class="gui-icon"><i class="fa fa-plus"></i></div>
+					<span class="title">Manage products</span>
+				</a>
+			</li>
+			<!-- End Manage Doctors -->
+			<!-- Manage Doctors -->
+			<!-- <li class="gui-folder">
+				<a>
+					<div class="gui-icon"><i class="md md-local-hospital"></i></div>
+					<span class="title">Programs</span>
+				</a>
+				
+				<ul style="display: none;">
+					<li><a href="<?= base_url() ?>BabiesImmunization"><span class="title">Immunization of babies</span></a></li>
+					<li><a href="<?= base_url() ?>PregnantImmunization"><span class="title">Immunization of pregnant</span></a></li>
+					<li><a href="<?= base_url() ?>HighbloodMaintenance"><span class="title">Highblood maintenance</span></a></li>
+					<li><a href="<?= base_url() ?>TuberculosisMaintenance"><span class="title">Tuberculosis maintenance</span></a></li>
+					<li><a href="<?= base_url() ?>FamilyPlanning"><span class="title">Family planning</span></a></li>
+					<li><a href="<?= base_url() ?>UnderweightChildren"><span class="title">Monitoring of underweight children</span></a></li>
+					<li><a href="<?= base_url() ?>EnvironmentalSanitation"><span class="title">Environmental Sanitation</span></a></li>
+				</ul>
+				
+			</li> -->
+			<!-- End Manage Doctors -->
 
 
 
-        </ul>
-        <!--end .main-menu -->
-        <!-- END MAIN MENU -->
+		</ul>
+		<!--end .main-menu -->
+		<!-- END MAIN MENU -->
 
-        <div class="menubar-foot-panel">
-            <small class="no-linebreak hidden-folded">
-            </small>
-        </div>
-    </div>
-    <!--end .menubar-scroll-panel-->
+		<div class="menubar-foot-panel">
+			<small class="no-linebreak hidden-folded">
+			</small>
+		</div>
+	</div>
+	<!--end .menubar-scroll-panel-->
 </div>
 <!--end #menubar-->
 <!-- END MENUBAR -->

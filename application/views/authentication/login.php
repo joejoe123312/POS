@@ -7,7 +7,7 @@
 			<div class="col">
 				<div class="col-sm-12">
 					<br />
-					<span class="text-lg text-bold text-primary">Sign In</span>
+					<span class="text-lg text-bold text-primary">POINT OF SALE</span>
 					<br /><br />
 					<form class="form floating-label" action="" accept-charset="utf-8" method="post">
 						<div class="form-group">
@@ -20,29 +20,13 @@
 						</div>
 						<br />
 						<div class="row">
-							<div class="col-xs-6 text-left">
-								<div class="checkbox checkbox-inline checkbox-styled">
-									<label>
-										<input type="checkbox"> <span>Remember me</span>
-									</label>
-								</div>
-							</div>
+							<div class="col-xs-6"></div>
 							<!--end .col -->
 							<div class="col-xs-6 text-right">
 								<button class="btn btn-primary btn-raised" type="submit">Login</button>
 							</div>
 							<!--end .col -->
-							<div class="col-sm-12  text-center">
-								<br><br>
-								<?php $contact = base_url() . "Contact_Page" ?>
 
-								<h5 class="text-light" style="color:blue">
-									Contact us <a href="<?= $contact ?>">here...</a>
-								</h5>
-
-								<br><br>
-
-							</div>
 							<!--end .col -->
 						</div>
 						<!--end .row -->
